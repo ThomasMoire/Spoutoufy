@@ -67,11 +67,29 @@ https://www.figma.com/design/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=
 
 ## 8 Cahier des charges : 
 - Page d'accueuil :
-      - Derniers titres likés.
-      - Menu profil.
-      - Nos playlists ?
-  
+    * Derniers titres likés.
+    * Menu Profil.
+    * Nos playlists ?
+
+- Page PROFIL
+    * Connexion.
+    * Déconnexion.
+    * Possibilité de s'abonner ?
+       Utilité ? IDK
+      
+    * Modifie son profil :
+      * Name
+      * Adress
+      * Photo ?
+        
+    * Rôles :
+        * Guest :
+              * Possible de tout voir et accès à toutes les fonctionnalités
+        * User :
+              * ??
+
 - Header avec barre de recherche.
 - Différents albums et ses musiques?
+
 
 - **Priorité pouvoir lire une musique** 
