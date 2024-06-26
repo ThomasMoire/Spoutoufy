@@ -66,7 +66,7 @@ erDiagram
 https://www.figma.com/design/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=vqKTwJqjSJuRtkq2-1
 
 ## 8 Cahier des charges : 
-- Page d'accueuil :
+- Page d'accueil :
     * Derniers titres likés.
     * Menu Profil.
     * Nos playlists ?
