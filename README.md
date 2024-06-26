@@ -63,7 +63,7 @@ erDiagram
 - Stripe pour le paiement d'abonnement.
 
 ## 7 Maquette FIGMA : 
-https://www.figma.com/proto/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=vqKTwJqjSJuRtkq2-1
+https://www.figma.com/design/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=vqKTwJqjSJuRtkq2-1
 
 ## 8 Cahier des charges : 
 - Page d'accueuil :
