@@ -59,7 +59,7 @@ erDiagram
     Playlist }|--}| Music : has
     User }|--}| Playlist : has
     User ||--|{ Music : has
-    User }|--|| Role : has
+    User ||--|| Role : has
     User }|--|| Compte : has
     Music ||--|| Author : has
 ```
