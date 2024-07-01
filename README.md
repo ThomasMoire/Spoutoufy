@@ -43,16 +43,23 @@ erDiagram
         name TEXT
         importance INT
     }
-    
-   
+    Playlist{
+        name TEXT
+        limit number
+    }
+    Compte{
+        id number
+    }   
 
     Music }|--|| Album : has
 
     
     Review }|--|| User : post
-
+    Playlist }|--}| Music : has
+    User }|--}| Playlist : has
     User ||--|{ Music : has
     User }|--|| Role : has
+    User }|--|| Compte : has
 ```
 
 
