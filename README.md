@@ -25,9 +25,7 @@ erDiagram
     Album{
         name TEXT
     }
-    Review["Review(join)"]{
-        rating INT
-        content TEXT
+    Music_images{
     }
     
     User{
@@ -61,6 +59,7 @@ erDiagram
     User ||--|{ Music : has
     User ||--|| Role : has
     User ||--|| Compte : has
+ 
     Music ||--|| Author : has
 ```
 
