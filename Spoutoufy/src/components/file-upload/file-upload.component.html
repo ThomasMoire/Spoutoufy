@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" #fileUploadForm="ngForm" enctype="multipart/form-data">
+    <input type="text" name="title" id="title" placeholder="Title" ngModel>
+    <input type="text" name="author" id="author" placeholder="Author" ngModel>
+    <input type="file" name="audio" id="audio" (change)="onFileChange($event)">
+    <button type="submit">Envoyer</button>
+  </form>
+
+  @if (audioUrl) {
+    <audio controls [src]="audioUrl"></audio>
+  }
+  @if (musics.length) {
+    <h2>Musiques disponibles</h2>
+    <ul>
+      @for (music of musics; track music.id){
+        <li>{{ music.name }}</li>
+      }
+    </ul>
+  }

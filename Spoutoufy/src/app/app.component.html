@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+    <input type="text" [(ngModel)]="text" name="searchText" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+  
+<app-file-upload></app-file-upload>
