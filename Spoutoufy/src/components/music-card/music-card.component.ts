@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Album } from '../../interfaces/Album';
 import { Music } from '../../interfaces/Music';
 import { APIService } from '../../services/API/api.service';
 import { RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +12,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './music-card.component.css'
 })
 export class MusicCardComponent {
-  music: any;
+
+  music: Music = {
+    title: "",
+    author: "",
+    url: "",
+    id: 0,
+    description: '',
+    genre: '',
+    album: '',
+    image: ''
+  }
 
   constructor(private API: APIService) { }
 

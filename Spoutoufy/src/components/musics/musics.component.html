@@ -1,7 +1,5 @@
 <div class="container">
-    @for (music of musics; track music.id){
-        <app-music-card routerLink="/music/{{music.id}}" [id]="music.id"></app-music-card>
+    @for (music of musics; track music.title){
+        <app-music-card routerLink="/music/{{music.title}}" [id]="music.title"></app-music-card>
     }
-
-
 </div>

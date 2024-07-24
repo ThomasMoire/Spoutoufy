@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MusicService } from '../../services/Music/music.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-file-upload',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css'],
-  providers: [MusicService]
 })
 export class FileUploadComponent implements OnInit {
-  audioUrl: string | undefined;
   selectedFile: File | null = null;
-  musics: any[] = [];
+  fileUrl: string | null = null;
+  musics: { name: string, url: string }[] = [];
 
   constructor(private musicService: MusicService) {}
 
@@ -29,7 +28,7 @@ export class FileUploadComponent implements OnInit {
 
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
+    if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
     }
   }
@@ -44,10 +43,24 @@ export class FileUploadComponent implements OnInit {
       formData.append('author', authorInput.value);
       formData.append('audio', this.selectedFile);
 
-      this.musicService.uploadMusic(formData).subscribe((response => {
-        this.audioUrl = response.url;
-        this.loadMusics(); // Recharger les musiques après l'upload
-      }));
+      this.musicService.uploadMusic(formData).subscribe(response => {
+        this.fileUrl = response.url;
+        this.loadMusics(); 
+        console.log(this.fileUrl); // Recharger les musiques après l'upload
+
+        fetch('http://localhost:3030/upload',{
+          method : "POST",
+          headers : {
+            'Content-Type' : 'application/json'
+          },
+          body : JSON.stringify({title : titleInput.value, author: authorInput.value,url : response.url,mime_type : this.selectedFile?.type})
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+
+      });
     }
   }
 }

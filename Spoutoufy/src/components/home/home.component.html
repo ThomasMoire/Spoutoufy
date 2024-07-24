@@ -1,0 +1,11 @@
+<h2>Suggestions de musiques :</h2>
+
+<div class="container">
+  @if(randomMusics.length >=  3) {
+    @for (music of randomMusics; track music.id) {
+      <app-music-card  routerLink="/music/{{music.id}}"
+      [id]="music.id">
+    </app-music-card>
+    
+    }
+  }
