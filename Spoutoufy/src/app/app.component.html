@@ -3,38 +3,22 @@
     <button type="submit">Search</button>
   </form> -->
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  
-</head>
-
-<body>
-
-  <div id="banner">
+<div id="banner">
   <a routerLink="/home"><img src="/LogoSpoutoufy.png" alt="" style="height: 33vh; width: 40vh;"/></a>
 </div>
-  <div id="navbar">
+<div id="navbar">
+  <a routerLink="/home">Home</a>
+  <br>
+  <a routerLink="/upload">Upload</a>
+  <br>
+  <a routerLink="/musics">Musics</a>
+  <br>
+  <br>
+  <a routerLink="/login">Se connecter</a>
+  <br>
+  <a routerLink="/CGU">CGU</a>
+  <br>
+  <a routerLink="/contact">Contact</a>
+</div>
     
-    <a routerLink="/home">Home</a>
-    <br>
-    <a routerLink="/upload">Upload</a>
-    <br>
-    <a routerLink="/musics">Musics</a>
-    <br>
-    <br>
-    <a routerLink="/login">Se connecter</a>
-    <br>
-    <a routerLink="/CGU">CGU</a>
-    <br>
-    <a routerLink="/contact">Contact</a>
-    </div>
-    
-    <router-outlet></router-outlet>
-</body>
-
-</html>
+  <router-outlet></router-outlet>
