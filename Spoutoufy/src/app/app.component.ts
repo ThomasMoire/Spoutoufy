@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,4 +22,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // document.body.style.backgroundColor = "#f5f5f5";
   }
+  
 }

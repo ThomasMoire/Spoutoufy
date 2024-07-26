@@ -8,24 +8,28 @@ import { Music } from '../../interfaces/Music';
   providedIn: 'root'
 })
 export class APIService {
-  getMusicById(musicId: number) : Promise<Music> {
-    throw new Error('Method not implemented.');
+  public async getMusicById(musicId: number) : Promise<Music> {
+    return fetch("http://localhost:3030/music/" + musicId)
+      .then((res) => res.json());
   }
   searchedMusics(text: string) {
-    throw new Error('Method not implemented.');
+    return this.http.get<Music[]>('http://localhost:3030/musics/search/' + text);
   }
 
   constructor(private http: HttpClient) { }
 
   public getMusics(): Observable<Music[]> {
-    return this.http.get<Music[]>('http://localhost:8080/musics');
+    return this.http.get<Music[]>('http://localhost:3030/musics');
   }
 
   public getAlbums(): Observable<Album[]> {
-    return this.http.get<Album[]>('http://localhost:8080/albums');
+    return this.http.get<Album[]>('http://localhost:3030/albums');
   }
 
   public getMusicsByAlbum(id: number): Observable<Music[]> {
-    return this.http.get<Music[]>(`http://localhost:8080/albums/${id}/musics`);
+    return this.http.get<Music[]>(`http://localhost:3030/albums/${id}/musics`);
+  }
+  deleteMusic(id: number): Observable<Music> {
+    return this.http.delete<Music>(`{http://localhost:3030}/musics/${id}`);
   }
 }

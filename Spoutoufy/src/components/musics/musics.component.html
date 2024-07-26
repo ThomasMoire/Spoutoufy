@@ -1,7 +1,11 @@
 <div class="container">
-    @for (music of musics; track music.id){
-        <app-music-card routerLink="/music/{{music.id}}" [id]="music.id"></app-music-card>
+    @for (music of musics; track music.id) {
+        <div class="music-box">
+            <h1>{{music.title }}</h1>
+            <h2>{{music.author }}</h2>
+      <audio controls>
+        <source [src]="music.url" type="audio/mpeg"> 
+    </audio>
+</div>
     }
-
-
 </div>

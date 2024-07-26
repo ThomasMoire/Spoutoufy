@@ -1,6 +1,23 @@
-<form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+<!-- <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
     <input type="text" [(ngModel)]="text" name="searchText" placeholder="Search...">
     <button type="submit">Search</button>
-  </form>
-  
-<app-file-upload></app-file-upload>
+  </form> -->
+
+<div id="banner">
+  <a routerLink="/home"><img src="/LogoSpoutoufy.png" alt="" style="height: 33vh; width: 40vh;"/></a>
+</div>
+<div id="navbar">
+  <a routerLink="/home">Home</a>
+  <br>
+  <a routerLink="/upload">Upload</a>
+  <br>
+  <a routerLink="/musics">Musics</a>
+  <br>
+  <a routerLink="/login">Se connecter</a>
+  <br>
+  <a routerLink="/CGU">CGU</a>
+  <br>
+  <a routerLink="/contact">Contact</a>
+</div>
+    
+  <router-outlet></router-outlet>

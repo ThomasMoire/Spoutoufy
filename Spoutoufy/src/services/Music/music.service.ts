@@ -1,13 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Music } from '../../interfaces/Music';
 
-@Injectable()
-export class MusicService{
+@Injectable({
+  providedIn: 'root'
+})
+export class MusicService {
+  deleteMusic(music: Music) {
+    throw new Error('Method not implemented.');
+  }
+  
   constructor(private http: HttpClient) {}
 
-  getMusics(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:3030/musics');
+  public async getMusicById(musicId: number) : Promise<Music> {
+    return fetch(`http://localhost:3030/musics/${musicId}`)
+      .then((res) => res.json());
+  }
+  public getMusics(): Observable<{ name: string, url: string }[]> {
+    return this.http.get<{ name: string, url: string }[]>('http://localhost:3030/musics');
   }
 
   uploadMusic(formData: FormData): Observable<{ url: string }> {

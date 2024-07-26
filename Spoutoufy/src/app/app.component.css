@@ -1,0 +1,16 @@
+/* Color logo #3838c6  */
+
+body {
+    background-color: #00000a;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+}
