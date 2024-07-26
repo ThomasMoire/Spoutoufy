@@ -9,7 +9,7 @@ import { Music } from '../../interfaces/Music';
 })
 export class APIService {
   public async getMusicById(musicId: number) : Promise<Music> {
-    return fetch("http://localhost:3030/musics/" + musicId)
+    return fetch("http://localhost:3030/music/" + musicId)
       .then((res) => res.json());
   }
   searchedMusics(text: string) {
@@ -28,5 +28,8 @@ export class APIService {
 
   public getMusicsByAlbum(id: number): Observable<Music[]> {
     return this.http.get<Music[]>(`http://localhost:3030/albums/${id}/musics`);
+  }
+  deleteMusic(id: number): Observable<Music> {
+    return this.http.delete<Music>(`{http://localhost:3030}/musics/${id}`);
   }
 }

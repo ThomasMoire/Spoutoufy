@@ -22,4 +22,9 @@ export class MusicsComponent implements OnInit {
       this.musics = musics
     })
   }
+  deleteMusic(id: number): void {
+    this.API.deleteMusic(id).subscribe(() => {
+      this.musics = this.musics.filter(music => music.id !== id);
+    });
+  }
 }

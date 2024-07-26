@@ -1,11 +1,19 @@
-<h2>Suggestions de musiques :</h2>
+<h2>Recommandations:</h2>
 
 <div class="container">
   @if(randomMusics.length >=  3) {
     @for (music of randomMusics; track music.id) {
+      
       <app-music-card  routerLink="/music/{{music.id}}"
       [id]="music.id">
-    </app-music-card>
+      </app-music-card>
+      <audio controls>
+        <source [src]="music.url" type="audio/mpeg"> 
+    </audio>
     
     }
   }
+</div>
+
+<h3>Playlists</h3>
+<app-musics></app-musics>

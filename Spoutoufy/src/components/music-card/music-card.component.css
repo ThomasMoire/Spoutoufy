@@ -1,9 +1,46 @@
+/* Styles pour le conteneur principal */
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    
-}
-.card{
-    display: grid;
-    
-}
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacement entre les cartes */
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Styles pour les cartes de musique */
+  app-music-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px; /* Largeur fixe pour les cartes */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  app-music-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styles pour les éléments audio */
+  audio {
+    width: 100%;
+    margin-top: 10px; /* Espacement entre la carte et le lecteur audio */
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Styles pour les titres et autres éléments internes aux cartes */
+  app-music-card h3 {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  app-music-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0 15px;
+  }
+  
