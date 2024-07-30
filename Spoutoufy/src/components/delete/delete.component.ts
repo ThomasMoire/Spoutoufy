@@ -11,12 +11,31 @@ import { Music } from '../../interfaces/Music';
 })
 export class DeleteComponent {
   musics: Music[] = [];
+  newMusics: Music[] = [];
 
   constructor(private API: APIService) { }
-  deleteMusic(id: number): void {
-    this.API.deleteMusic(id).subscribe(() => {
-      this.musics = this.musics.filter(music => music.id !== id);
-      console.log("Musique supprimée avec succès ${id}");
-    });
+  loadMusics() {
+    this.API.getMusics().subscribe((musics: Music[])=> {
+      this.musics = musics;
+    })
+  }
+  async deleteMusic(music: Music) {
+    try {
+      const response = await fetch(`http://localhost:3030/music/${music.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la suppression');
+      }
+
+      // Rechargez les musiques après la suppression
+      await this.loadMusics();
+    } catch (error) {
+      console.error('Erreur:', error);
+    }
   }
 }

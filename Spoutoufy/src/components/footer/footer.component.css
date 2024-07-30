@@ -1,0 +1,83 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(22, 28, 52);
+    padding: 2rem;
+    color: white; /* Largeur maximale commune */
+}
+
+.footer-text {
+    font-size: 1.5rem; /* Augmente la taille de la police */
+    margin-bottom: 1rem;
+}
+
+.spoutoufy-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Augmente l'espacement entre les icônes */
+    margin-bottom: 1.5rem;
+}
+
+.spoutoufy-links img {
+    width: 40px; /* Augmente la taille des icônes */
+    height: 40px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.spoutoufy-links img:hover {
+    transform: scale(1.2); /* Agrandissement au survol */
+    opacity: 0.8;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Augmente l'espacement entre les liens */
+}
+
+.footer-link {
+    font-size: 1.2rem; /* Augmente la taille de la police des liens */
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.footer-link:hover {
+    color: #FFD700; /* Change la couleur au survol */
+    border-bottom: 2px solid #FFD700; /* Ajoute une bordure au survol */
+}
+
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 1rem;
+    }
+
+    .footer-text {
+        font-size: 1.2rem;
+    }
+
+    .spoutoufy-links {
+        gap: 1rem;
+    }
+
+    .spoutoufy-links img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-link {
+        font-size: 1rem;
+    }
+}

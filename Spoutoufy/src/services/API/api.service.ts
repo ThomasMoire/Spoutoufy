@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Album } from '../../interfaces/Album';
 import { Music } from '../../interfaces/Music';
+import { MusicCardComponent } from '../../components/music-card/music-card.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
+  events: any;
   public async getMusicById(musicId: number) : Promise<Music> {
     return fetch("http://localhost:3030/music/" + musicId)
       .then((res) => res.json());
@@ -29,7 +31,13 @@ export class APIService {
   public getMusicsByAlbum(id: number): Observable<Music[]> {
     return this.http.get<Music[]>(`http://localhost:3030/albums/${id}/musics`);
   }
-  deleteMusic(id: number): Observable<Music> {
-    return this.http.delete<Music>(`{http://localhost:3030}/musics/${id}`);
+  deleteMusic(music: Music) {
+    return fetch(`http://localhost:3030/music/${music.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(music) 
+      }).then((res) => res.json());
   }
 }

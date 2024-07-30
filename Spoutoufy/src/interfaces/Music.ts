@@ -6,6 +6,7 @@ export interface Music {
     genre : string
     author : string
     album : string
-    image : string
+    image? : string
+    liked : boolean;
 
 }

@@ -1,39 +1,56 @@
 import { Component, Input } from '@angular/core';
+import { MusicsComponent } from '../musics/musics.component';
 import { Music } from '../../interfaces/Music';
-import { APIService } from '../../services/API/api.service';
-import { RouterModule } from '@angular/router';
+import { MusicService } from '../../services/Music/music.service';
+import { PlaylistMenuComponent } from "../playlist-menu/playlist-menu.component";
 
 
 @Component({
   selector: 'app-music-card',
+  imports: [MusicsComponent, PlaylistMenuComponent],
   standalone: true,
-  imports: [RouterModule],
   templateUrl: './music-card.component.html',
-  styleUrl: './music-card.component.css'
+  styleUrls: ['./music-card.component.css'],
 })
 export class MusicCardComponent {
+  @Input() music: 
+  { title: string, author: string, image?: string, url: string } = {
+    title: '',
+    author: '',
+    image: 'https://picsum.photos/300/200', 
+    url: ''
+  };
 
-  music: Music = {
-    title: "",
-    author: "",
-    url: "",
-    id: 0,
-    description: '',
-    genre: '',
-    album: '',
-    image: ''
+  constructor(private musicService: MusicService) { }
+  
+  showPlaylistMenu: boolean = false;
+  playlists: string[] = ['Playlist 1', 'Playlist 2', 'Playlist 3'];
+  selectedPlaylists: string[] = [];
+
+  likeMusic() {
+    this.musicService.likeMusic;
+    alert(`You liked: ${this.music.title}`);
   }
 
-  constructor(private API: APIService) { }
+  togglePlaylistMenu() {
+    this.showPlaylistMenu = !this.showPlaylistMenu;
+}
 
-  musics: Music[] = [];
+  onPlaylistChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.checked) {
+      this.selectedPlaylists.push(input.value);
+    } else {
+      this.selectedPlaylists = this.selectedPlaylists.filter(playlist => playlist !== input.value);
+    }
+  }
   
-
-  @Input() set id(musicId: number) {
-    this.API.getMusicById(musicId)
-    .then((music: any)=>{
-      this.music = music;
-    })
-    .catch((error: any)=>console.log(error));
+  addToPlaylist() {
+    if (this.selectedPlaylists.length > 0) {
+      alert(`Added to: ${this.selectedPlaylists.join(', ')}`);
+    } else {
+      alert('Please select a playlist.');
+    }
+    // this.closePlaylistOptions();
   }
 }

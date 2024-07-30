@@ -1,16 +1,50 @@
+/* Style pour le conteneur principal */
 .container {
     display: flex;
-    flex-wrap: wrap; /* Pour permettre le retour à la ligne */
-    justify-content: center; /* Centrer les éléments horizontalement */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgb(22, 28, 52);
 }
 
+/* Style pour chaque boîte de musique */
 .music-box {
-    flex: 1 0 30%; /* Prend environ 30% de la largeur du conteneur */
-    box-sizing: border-box; /* Inclure la bordure et le padding dans la taille totale */
-    border: 1px solid black; /* Bordure noire */
-    background-color: blue; /* Fond bleu */
-    margin: 10px; /* Espace entre les éléments */
-    padding: 10px; /* Padding à l'intérieur de chaque élément */
-    text-align: center; /* Centrer le contenu à l'intérieur de chaque élément */
-    color: white; /* Texte en blanc pour plus de lisibilité */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Effet au survol de chaque boîte de musique */
+.music-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour les titres de musique */
+.music-box h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+/* Style pour les auteurs de musique */
+.music-box h2 {
+    font-size: 18px;
+    color: #777;
+    margin: 0 0 20px;
+}
+
+/* Style pour le lecteur audio */
+.music-box audio {
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+}
+
+

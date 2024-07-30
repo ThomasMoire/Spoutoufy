@@ -1,0 +1,21 @@
+.playlist-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.playlist-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.playlist-menu li {
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.playlist-menu li:hover {
+    background: #eee;
+}

@@ -1,8 +1,15 @@
 <h1>Bienvenue sur votre page admin</h1>
 
-<br>
-<br>
-
-<h2>Tous les produits référencés :</h2>
-<a routerLink="/admin" (click)="delete(product)"><button>Supprimer</button></a>
-<app-musics></app-musics>
+<div class="button-container">
+    <button class="button-upload" routerLink="/upload">Ajoute une nouvelle musique</button>
+  </div>
+<div class="container">
+        @for(music of musics ; track music.id){ 
+            <div class="music-box">
+        @if(music){
+            <app-music-card routerLink="/login" [music]="music"></app-music-card>
+            <button class="btn btn-danger btn-delete" (click)="confirmDelete(music)">Supprimer</button>
+        }
+    </div>
+}
+</div>

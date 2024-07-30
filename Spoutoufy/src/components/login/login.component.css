@@ -1,16 +1,87 @@
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
 .container {
     display: flex;
-    flex-wrap: wrap; /* Pour permettre le retour à la ligne */
-    justify-content: center; /* Centrer les éléments horizontalement */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    justify-content: center; /* Centre les éléments horizontalement */
 }
 
 .music-box {
     flex: 1 0 30%; /* Prend environ 30% de la largeur du conteneur */
+    max-width: 30%; /* S'assure que l'élément ne dépasse pas 30% de la largeur */
     box-sizing: border-box; /* Inclure la bordure et le padding dans la taille totale */
     border: 1px solid black; /* Bordure noire */
-    background-color: blue; /* Fond bleu */
+    /* background-color: blue; Fond bleu */
     margin: 10px; /* Espace entre les éléments */
     padding: 10px; /* Padding à l'intérieur de chaque élément */
     text-align: center; /* Centrer le contenu à l'intérieur de chaque élément */
     color: white; /* Texte en blanc pour plus de lisibilité */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.btn-delete {
+    margin-top: 10px; /* Espace au-dessus du bouton */
+    border-radius: 5px;
+    padding: 10px 20px; /* Augmenté pour un meilleur toucher */
+    background-color: #ff4d4d; /* Couleur de fond rouge */
+    color: white; /* Couleur du texte en blanc */
+    border: none; /* Supprime la bordure par défaut */
+    cursor: pointer; /* Curseur de la souris en mode pointeur */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour un effet plus fluide */
+    font-family: 'Arial', sans-serif; /* Police sans-serif moderne */
+    font-size: 16px; /* Taille de police standard */
+    font-weight: bold; /* Texte en gras */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre légère pour un effet de profondeur */
+}
+
+.btn-delete:hover {
+    background-color: #ff1a1a; /* Couleur de fond plus foncée au survol */
+    transform: scale(1.05); /* Légère mise en relief au survol */
+}
+
+.btn-delete:active {
+    background-color: #e60000; /* Couleur de fond encore plus foncée lors du clic */
+    transform: scale(1); /* Réinitialise l'effet de mise en relief lors du clic */
+}
+
+/* Styles pour le bouton upload */
+.button-upload {
+    display: inline-block;
+    padding: 15px 30px; /* Augmente l'espacement intérieur pour agrandir le bouton */
+    font-size: 1.25rem; /* Augmente la taille de la police */
+    font-weight: 600; /* Rends le texte plus audacieux */
+    color: white; /* Couleur du texte */
+    background-color: #007bff; /* Couleur de fond du bouton (bleu) */
+    border: none; /* Retire la bordure */
+    border-radius: 8px; /* Coins plus arrondis */
+    text-align: center; /* Centre le texte */
+    text-decoration: none; /* Retire le soulignement des liens */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s, transform 0.2s; /* Transition douce */
+    margin: 20px auto; /* Espace autour du bouton et le centre horizontalement */
+    display: block; /* Permet de centrer le bouton */
+  }
+  
+  .button-upload:hover {
+    background-color: #0056b3; /* Couleur de fond au survol (bleu plus foncé) */
+  }
+  
+  .button-upload:active {
+    background-color: #003d7a; /* Couleur de fond au clic (bleu encore plus foncé) */
+    transform: scale(0.98); /* Réduit légèrement la taille au clic */
+  }
+  
+  .button-upload:focus {
+    outline: none; /* Retire la bordure de focus par défaut */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Ombre portée pour indiquer le focus */
+  }
+  
