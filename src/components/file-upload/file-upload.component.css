@@ -5,6 +5,12 @@ body {
     
   }
   
+  audio {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  /* Assurez-vous que les autres styles sont cohérents */
   form {
     background-color: #3b2df9;
     border-radius: 8px;
@@ -48,6 +54,4 @@ body {
   
   button:hover {
     background-color: #004d40;
-  }
-  
-  
+  }  
