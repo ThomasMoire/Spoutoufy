@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Album } from '../../interfaces/Album';
 import { Music } from '../../interfaces/Music';
-import { MusicCardComponent } from '../../components/music-card/music-card.component';
 
 @Injectable({
   providedIn: 'root'

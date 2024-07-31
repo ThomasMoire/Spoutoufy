@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
       }
 
       // Rechargez les musiques après la suppression
-      await this.loadMusics();
+      this.loadMusics();
     } catch (error) {
       console.error('Erreur:', error);
     }

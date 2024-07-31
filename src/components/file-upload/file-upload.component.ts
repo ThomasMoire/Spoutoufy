@@ -46,21 +46,42 @@ export class FileUploadComponent implements OnInit {
       this.musicService.uploadMusic(formData).subscribe(response => {
         this.fileUrl = response.url;
         this.loadMusics(); 
-        console.log(this.fileUrl); // Recharger les musiques après l'upload
+        console.log(this.fileUrl);
 
         fetch('http://localhost:3030/upload',{
           method : "POST",
           headers : {
             'Content-Type' : 'application/json'
           },
-          body : JSON.stringify({title : titleInput.value, author: authorInput.value,url : response.url,mime_type : this.selectedFile?.type})
+          body : JSON.stringify({
+            title : titleInput.value, 
+            author: authorInput.value,
+            url : response.url,mime_type : this.selectedFile?.type
+          })
         })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-        })
+        });
+
+        // Reset the form
+        titleInput.value = '';
+        authorInput.value = '';
+        this.selectedFile = null;
+
+        // Update the audio-player
+        this.updateAudioPlayer(response.url);
 
       });
+    }
+  }
+
+  updateAudioPlayer(url: string): void {
+    const audioPlayer = document.getElementById('audio-player') as HTMLAudioElement;
+    if(audioPlayer) {
+      audioPlayer.src = url;
+      audioPlayer.load();
+      audioPlayer.play();
     }
   }
 }

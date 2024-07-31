@@ -1,106 +1,27 @@
 # Spoutoufy
 
-### 1 Titre du projet : Spoutoufy
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
 
-### 2 Description :
+## Development server
 
-Une application d'écoute de musique, de like/dislike. Possibilité de créer ses playlist avec ces titres likés. 
-Discuter en live avec des autres utilisateurs, moyen d'abonnement ?
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## 3 Case UML : 
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-![image](https://github.com/ThomasMoire/Spoutoufy/assets/118922067/0358b95c-a66e-46d1-9e8b-92fbe5d9aeee)
+## Build
 
-## 4 Définir les entités du projet : 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-- Utilisateurs 
-- Musique => Playlist
-- Tchat
-- Abonnement ?
+## Running unit tests
 
-## 5 EntityRelationUML :  
-```mermaid
-erDiagram
-    Album{
-        name TEXT
-    }
-    Music_images{
-    }
-    
-    User{
-        name TEXT
-        password TEXT
-        email TEXT
-        birth_date DATE
-    }
-    Music{
-        url TEXT
-    }
-    Role{
-        name TEXT
-        importance INT
-    }
-    Playlist{
-        name TEXT
-        limit number
-    }
-    Compte{
-        id number
-    }
-    Author{
-        name TEXT
-    }   
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-    Music }|--|| Album : has
-    Review }|--|| User : post
-    Playlist }|--}| Music : has
-    User }|--}| Playlist : has
-    User ||--|{ Music : has
-    User ||--|| Role : has
-    User ||--|| Compte : has
- 
-    Music ||--|| Author : has
-```
+## Running end-to-end tests
 
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Further help
 
-## 6 Stack et architecture du projet :
-- Angular pour le Front.
-- NodeJS/Express pour l'API Rest.
-- Sequelize pour SQL.
-- Stripe pour le paiement d'abonnement.
-
-## 7 Maquette FIGMA : 
-https://www.figma.com/design/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=vqKTwJqjSJuRtkq2-1
-
-
-
-## 8 Cahier des charges : 
-- Page d'accueil :
-    * Derniers titres likés.
-    * Menu Profil.
-    * Nos playlists ?
-
-- Page PROFIL
-    * Connexion.
-    * Déconnexion.
-    * Possibilité de s'abonner ?
-       Utilité ? IDK
-      
-    * Modifie son profil :
-      * Name
-      * Adress
-      * Photo ?
-        
-    * Rôles :
-        * Guest :
-              * Possible de tout voir et accès à toutes les fonctionnalités
-        * User :
-              * ??
-
-- Header avec barre de recherche.
-- Différents albums et ses musiques?
-
-
-- **Priorité pouvoir lire une musique** 
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -59,6 +59,48 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Style pour le sous-menu */
+.sub-nav {
+    display: none;
+    position: absolute;
+    top: 100%; /* Place le sous-menu directement sous l'élément parent */
+    left: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(22, 28, 52); /* Assure que le sous-menu a le même fond que le menu principal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour le sous-menu */
+    z-index: 1000; /* Assure que le sous-menu apparaît au-dessus des autres éléments */
+}
+
+.nav > li:hover .sub-nav {
+    display: block; /* Affiche le sous-menu au survol de l'élément parent */
+}
+
+.sub-nav > li {
+    color : black;
+    font-size: 1rem; /* Ajuste la taille de la police pour le sous-menu */
+    font-weight: normal; /* Réduit le poids de la police pour le sous-menu */
+    padding: 0.5rem 1rem; /* Ajuste l'espace autour des éléments du sous-menu */
+    transition: background-color 0.3s; /* Transition pour le changement de couleur de fond */
+}
+
+.sub-nav > li:hover {
+    background-color: #000000; /* Couleur dorée pour le survol du sous-menu */
+}
+
+.sub-nav > li > app-nav-item {
+    color: rgb(0, 0, 0); /* Couleur du texte du sous-menu */
+    display: block; /* Assure que les éléments du sous-menu sont affichés en bloc */
+    padding: 0.5rem 1rem; /* Ajoute de l'espace autour du texte */
+}
+
+.sub-nav > li > app-nav-item:hover {
+    color: #000; /* Couleur du texte au survol du sous-menu devient noir */
+
+}
+
+
 @media (max-width: 768px) {
     .header {
         flex-direction: column;

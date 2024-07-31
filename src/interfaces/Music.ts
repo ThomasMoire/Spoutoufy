@@ -8,5 +8,4 @@ export interface Music {
     album : string
     image? : string
     liked : boolean;
-
 }

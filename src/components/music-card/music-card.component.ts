@@ -2,12 +2,11 @@ import { Component, Input } from '@angular/core';
 import { MusicsComponent } from '../musics/musics.component';
 import { Music } from '../../interfaces/Music';
 import { MusicService } from '../../services/Music/music.service';
-import { PlaylistMenuComponent } from "../playlist-menu/playlist-menu.component";
 
 
 @Component({
   selector: 'app-music-card',
-  imports: [MusicsComponent, PlaylistMenuComponent],
+  imports: [MusicsComponent,],
   standalone: true,
   templateUrl: './music-card.component.html',
   styleUrls: ['./music-card.component.css'],

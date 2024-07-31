@@ -10,9 +10,8 @@
   <button type="submit">Upload</button>
   @if(fileUrl){
     <P>Tu as réussi à mettre ta musique, écoute la !</P>
-    <audio controls autoplay>
+    <audio  id="audio-player" controls autoplay>
       <source [src]="fileUrl" type="audio/mpeg">
     </audio>
-    
   }
 </form>

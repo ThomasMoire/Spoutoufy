@@ -9,6 +9,7 @@ import { DeleteComponent } from '../components/delete/delete.component';
 import { HomeComponent } from '../components/home/home.component';
 import { NgModule } from '@angular/core';
 
+
 export const routes: Routes = [
     {path : "home",component:HomeComponent},
     {path : "musics",component:MusicsComponent},
@@ -19,6 +20,9 @@ export const routes: Routes = [
     {path : "musics/:id",component:MusicsComponent},
     {path : "contact",component:ContactComponent},
     {path : "delete",component:DeleteComponent},
+    {path : "delete/:id",component:DeleteComponent},
+    // {path : "author",component:AuthorComponent},
+    // {path: "author/:id", component: AuthorDetailComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     
 ];

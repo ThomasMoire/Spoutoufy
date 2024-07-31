@@ -11,7 +11,7 @@ export class MusicService {
   private musics: Music[] = [];
   private playlists: { [name: string]: Music[] } = {};
   private likedMusicsSubject = new Observable<Music[]>();
-  // likedMusics$ = this.likedMusicsSubject();
+  
 
   constructor(private http: HttpClient) {}
   public async getMusicById(musicId: number) : Promise<Music> {
@@ -19,7 +19,7 @@ export class MusicService {
       .then((res) => res.json());
   }
   public getMusics(): Observable<{ name: string, url: string }[]> {
-    return this.http.get<{ name: string, url: string }[]>('http://localhost:3030/musics');
+    return this.http.get<{ name: string, author: string, url: string }[]>('http://localhost:3030/musics');
   }
   uploadMusic(formData: FormData): Observable<{ url: string }> {
     return this.http.post<{ url: string }>('http://localhost:3008/upload', formData);
