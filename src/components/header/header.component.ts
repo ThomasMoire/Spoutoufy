@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavItemComponent } from "../nav-item/nav-item.component";
 import { SearchResultComponent } from "../search-result/search-result.component";
-import { MusicsComponent } from '../musics/musics.component';
 
 @Component({
   selector: 'app-header',

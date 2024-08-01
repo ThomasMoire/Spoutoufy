@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterLink, Routes } from '@angular/router';
 import { FooterComponent } from "../components/footer/footer.component";
 import { HeaderComponent } from "../components/header/header.component";
-import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 
@@ -21,16 +20,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {}
 
-  openConfirmDialog() {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent);
-
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      if (result === true) {
-        console.log('Suppression confirmée');
-        // Appeler la méthode de suppression ici
-      } else {
-        console.log('Suppression annulée');
-      }
-    });
   }
-}
