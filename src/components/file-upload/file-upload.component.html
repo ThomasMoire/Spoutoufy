@@ -12,7 +12,8 @@
 
   <div>
     @if(fileUrl){
-    <P>Tu as réussi à mettre ta musique, écoute la !</P>
+    <P>Tu as réussi à mettre ta musique en ligne, écoute la !</P>
+    <!-- <audio #audioElement [src]="fileUrl" type="audio/mpeg"></audio> -->
     <audio id="audio-player" controls autoplay>
       <source [src]="fileUrl" type="audio/mpeg">
     </audio>

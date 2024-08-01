@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { MusicsComponent } from '../musics/musics.component';
 import { Music } from '../../interfaces/Music';
 import { MusicService } from '../../services/Music/music.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-music-card',
-  imports: [MusicsComponent,],
+  imports: [MusicsComponent, ],
   standalone: true,
   templateUrl: './music-card.component.html',
   styleUrls: ['./music-card.component.css'],
@@ -50,6 +51,5 @@ export class MusicCardComponent {
     } else {
       alert('Please select a playlist.');
     }
-    // this.closePlaylistOptions();
   }
 }

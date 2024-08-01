@@ -1,26 +1,24 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Music } from '../../interfaces/Music';
-import { APIService } from '../../services/API/api.service';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { MusicService } from '../../services/Music/music.service';
+import { Router, RouterLink } from '@angular/router';
+import { MusicsComponent } from '../musics/musics.component';
 import { MusicCardComponent } from '../music-card/music-card.component';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
-import { UpdateMusicComponent } from '../update-music/update-music.component';
-import { MusicService } from '../../services/Music/music.service';
-import { MusicsComponent } from '../musics/musics.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MusicCardComponent, UpdateMusicComponent, FileUploadComponent, MusicsComponent, RouterLink],
+  imports: [MusicCardComponent, FileUploadComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
   musics: Music[] = [];
-  private api = inject(APIService);
+  private api = inject(MusicService);
   private musicService = inject(MusicService);
   private router = inject(Router);
   isDeleteButtonVisible: boolean = false;

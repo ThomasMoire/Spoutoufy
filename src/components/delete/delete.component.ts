@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { APIService } from '../../services/API/api.service';
+import { MusicService } from '../../services/Music/music.service';
 import { Music } from '../../interfaces/Music';
 
 @Component({
@@ -13,7 +13,7 @@ export class DeleteComponent {
   musics: Music[] = [];
   newMusics: Music[] = [];
 
-  constructor(private API: APIService) { }
+  constructor(private API: MusicService) { }
   loadMusics() {
     this.API.getMusics().subscribe((musics: Music[])=> {
       this.musics = musics;
@@ -33,7 +33,7 @@ export class DeleteComponent {
       }
 
       // Rechargez les musiques après la suppression
-      await this.loadMusics();
+      this.loadMusics();
     } catch (error) {
       console.error('Erreur:', error);
     }

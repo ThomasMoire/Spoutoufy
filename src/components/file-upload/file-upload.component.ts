@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MusicService } from '../../services/Music/music.service';
+import { MusicCardComponent } from '../music-card/music-card.component';
+import { Music } from '../../interfaces/Music';
 
 @Component({
   selector: 'app-file-upload',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, MusicCardComponent],
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css'],
 })
 export class FileUploadComponent implements OnInit {
   selectedFile: File | null = null;
   fileUrl: string | null = null;
-  musics: { name: string, url: string }[] = [];
+  musics: Music[] = [];
 
   constructor(private musicService: MusicService) {}
 

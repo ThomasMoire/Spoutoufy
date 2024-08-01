@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Music } from '../../interfaces/Music';
+import { Injectable } from "@angular/core";
+import { Music } from "../../interfaces/Music";
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { HttpClient } from "@angular/common/http";
+import { catchError, Observable, throwError } from "rxjs";
+import { Album } from "../../interfaces/Album";
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,53 +13,85 @@ export class MusicService {
 
   private musics: Music[] = [];
   private playlists: { [name: string]: Music[] } = {};
-  private likedMusicsSubject = new Observable<Music[]>();
-  
+  private likedMusicsSubject = new BehaviorSubject<Music[]>([]);
+  likedMusics$ = this.likedMusicsSubject.asObservable();
 
   constructor(private http: HttpClient) {}
-  public async getMusicById(musicId: number) : Promise<Music> {
-    return fetch(`http://localhost:3030/music/${musicId}`)
-      .then((res) => res.json());
+
+  public getMusicById(musicId: number): Observable<Music> {
+    return this.http.get<Music>(`http://localhost:3030/music/${musicId}`).pipe(
+      catchError(this.handleError)
+    );
   }
-  public getMusics(): Observable<{ name: string, url: string }[]> {
-    return this.http.get<{ name: string, author: string, url: string }[]>('http://localhost:3030/musics');
+
+  public getMusics(): Observable<Music[]> {
+    return this.http.get<Music[]>('http://localhost:3030/musics').pipe(
+      catchError(this.handleError)
+    );
   }
-  uploadMusic(formData: FormData): Observable<{ url: string }> {
-    return this.http.post<{ url: string }>('http://localhost:3008/upload', formData);
+
+  public getAlbums(): Observable<Album[]> {
+    return this.http.get<Album[]>('http://localhost:3030/albums').pipe(
+      catchError(this.handleError)
+    );
   }
-  deleteMusic(music: Music) {
-    return fetch(`http://localhost:3030/music/${music.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(music) 
-      }).then((res) => res.json());
+
+  public getMusicsByAlbum(id: number): Observable<Music[]> {
+    return this.http.get<Music[]>(`http://localhost:3030/albums/${id}/musics`).pipe(
+      catchError(this.handleError)
+    );
   }
-  likeMusic(music: Music) {
+
+  public searchedMusics(text: string): Observable<Music[]> {
+    return this.http.get<Music[]>(`http://localhost:3030/musics/search/${text}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public uploadMusic(formData: FormData): Observable<{ url: string }> {
+    return this.http.post<{ url: string }>('http://localhost:3008/upload', formData).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public deleteMusic(music: Music): Observable<any> {
+    return this.http.delete(`http://localhost:3030/music/${music.id}`, {
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(music)
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public likeMusic(music: Music) {
     music.liked = !music.liked;
     this.updateLikedMusics();
   }
 
-  updateLikedMusics() {
-    const likedMusics = this.musics.filter(music => music.liked);
-    // this.likedMusicsSubject.next(likedMusics);
+  private updateLikedMusics() {
+    const likedMusics = this.musics.filter(m => m.liked);
+    this.likedMusicsSubject.next(likedMusics);
   }
 
-  addToPlaylist(music: Music, playlistName: string) {
+  public addToPlaylist(music: Music, playlistName: string) {
     if (!this.playlists[playlistName]) {
       this.playlists[playlistName] = [];
     }
     this.playlists[playlistName].push(music);
   }
 
-  getPlaylists() {
+  public getPlaylists() {
     return this.playlists;
   }
 
-  createPlaylist(name: string) {
+  public createPlaylist(name: string) {
     if (!this.playlists[name]) {
       this.playlists[name] = [];
     }
+  }
+
+  private handleError(error: any) {
+    console.error('An error occurred:', error);
+    return throwError(error);
   }
 }

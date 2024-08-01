@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { FileUploadComponent } from '../components/file-upload/file-upload.component';
+import { RouterModule, RouterLink, Routes } from '@angular/router';
 import { FooterComponent } from "../components/footer/footer.component";
 import { HeaderComponent } from "../components/header/header.component";
-import { CarouselComponent } from '../components/carousel/carousel.component';
-import { MusicCardComponent } from '../components/music-card/music-card.component';
 import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, FormsModule, FileUploadComponent, FooterComponent, HeaderComponent, AppComponent, CarouselComponent, MusicCardComponent],
+  imports: [RouterModule, FooterComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

@@ -2,17 +2,17 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { Music } from '../../interfaces/Music';
 import { MusicsComponent } from '../musics/musics.component';
 import { MusicCardComponent } from '../music-card/music-card.component';
-import { APIService } from '../../services/API/api.service';
+import { MusicService } from '../../services/Music/music.service';
 
 @Component({
   selector: 'app-carousel',
-  imports: [MusicsComponent, MusicCardComponent],
+  imports: [ MusicCardComponent],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
   standalone: true,
 })
 export class CarouselComponent implements OnInit {
-  private api = inject(APIService);
+  private api = inject(MusicService);
   @Input() musics: Music[] = [];
   visibleMusics: Music[] = [];
   currentIndex = 0;

@@ -6,7 +6,7 @@ import { MusicsComponent } from "../musics/musics.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselComponent, MusicCardComponent, MusicsComponent],
+  imports: [CarouselComponent, MusicCardComponent, MusicsComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

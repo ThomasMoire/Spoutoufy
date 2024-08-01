@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { Music } from '../../interfaces/Music';
-import { APIService } from '../../services/API/api.service';
+import { MusicService } from '../../services/Music/music.service';
 
 @Component({
   selector: 'app-search-result',
@@ -10,7 +10,7 @@ import { APIService } from '../../services/API/api.service';
   styleUrl: './search-result.component.css'
 })
 export class SearchResultComponent {
-  private API = inject(APIService);
+  private API = inject(MusicService);
 
 @Input() text ! : string;
 
