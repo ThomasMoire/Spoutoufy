@@ -1,0 +1,12 @@
+<div class="music-card">
+    <img class="album-cover" [src]="music.image || 'https://picsum.photos/300/200'">
+    <div class="music-info">
+        <h3 class="music-title">{{ music.title }}</h3>
+        <p class="music-artist">{{ music.author }}</p>
+        <button class="like-button" (click)="likeMusic()">❤️</button>
+        <button class="playlist-button" (click)="togglePlaylistMenu()">➕ Add to Playlist</button>
+        <audio controls>
+            <source [src]="music.url" type="audio/mpeg">
+          </audio>
+    </div>
+</div>

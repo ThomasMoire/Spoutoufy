@@ -1,0 +1,129 @@
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(22, 28, 52);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel button:hover {
+  color: #555;
+}
+
+.carousel button.prev {
+  left: -50px; /* Adjust as necessary */
+  color: white;
+}
+
+.carousel button.next {
+  right: -50px; /* Adjust as necessary */
+  color: white;
+}
+
+.carousel-musics {
+  display: flex;
+  justify-content: center;
+  width: 65%;
+}
+
+.music-box {
+  flex: 0 0 30%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.music-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.music-box h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.music-box h2 {
+  font-size: 18px;
+  color: #777;
+  margin: 0 0 20px;
+}
+
+.audio-player {
+  position: relative;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+audio {
+  display: none; /* Hide default audio controls */
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.controls button:hover {
+  color: #555;
+}
+
+.controls input[type="range"] {
+  width: 100px;
+  cursor: pointer;
+  appearance: none;
+  background: #ddd;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.controls input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls input[type="range"]:hover {
+  background: #ccc;
+}

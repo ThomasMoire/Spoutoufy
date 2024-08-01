@@ -1,0 +1,63 @@
+.music-card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.music-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.music-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.music-artist {
+    margin: 0;
+    color: #777;
+}
+
+.like-button, .playlist-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin: 5px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.like-button:hover, .playlist-button:hover {
+    background-color: #0056b3;
+}
+
+audio {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 4px;
+}

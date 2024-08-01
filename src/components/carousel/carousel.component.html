@@ -1,0 +1,13 @@
+<div class="carousel">
+  <button class="prev" (click)="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+  <div class="carousel-musics">
+    @if(visibleMusics.length > 0) {
+      @for (music of visibleMusics; track music.id) {
+        <div class="music-box">
+        <app-music-card [music]="music"></app-music-card>
+        </div>
+        }
+      }
+    </div>
+    <button class="next" (click)="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+  </div>
