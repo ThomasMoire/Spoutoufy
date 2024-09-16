@@ -106,6 +106,13 @@ https://www.figma.com/design/ubu4SuQgmNyzccVLJygUGo/Untitled?node-id=203-1475&t=
 
 
 ## 8 Cahier des charges : 
+
+| titre | details | prio |
+| - | - | - |
+| Page d'accueil |
+| |Derniers titres likés.| 0
+| |Menu Profil.| 0
+
 - Page d'accueil :
     * Derniers titres likés.
     * Menu Profil.
