@@ -44,6 +44,9 @@ gantt
     Optimisation du Front-End : 2024-07-04, 30d
     Ajout du visuel Music : 2024-07-05, 2d
     Ajout de la page Upload: 2024-07-07, 2h
+    Modification Code : 2024-08-08, 20d
+    Authentification : 2024-09-01, 15d
+    Correction : 2024-09-17, 5d
         
 ```
 
