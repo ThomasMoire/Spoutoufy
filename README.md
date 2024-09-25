@@ -51,45 +51,43 @@ gantt
 ## 5 EntityRelationUML :  
 ```mermaid
 erDiagram
-    Album{
-        name TEXT
-    }
-    Music_images{
-    }
-    
+       
     User{
-        name TEXT
-        password TEXT
-        email TEXT
-        birth_date DATE
+        id INT
+        username VARCHAR(255)
+        password VARCHAR(255)
+        email VARCHAR(255)
+        birth_date DATETIME
+        RoleId INT
     }
     Music{
+        id INT
+        title VARCHAR(255)
         url TEXT
+        author VARCHAR(255)
     }
     Role{
-        name TEXT
-        importance INT
+        id INT
+        name VARCHAR(255)
     }
     Playlist{
-        name TEXT
-        limit number
+        id INT 
+        name VARCHAR(255)
     }
-    Compte{
-        id number
-    }
-    Author{
-        name TEXT
-    }   
+    PlaylistMusic{
+        PlaylistId INT
+        MusicId INT
+  }
+    
 
-    Music }|--|| Album : has
-    Review }|--|| User : post
+    Music }|--|| Playlist : has
+    PlaylistMusic }| -- }| Playlist : has
+    Music }| -- }| PlaylistMusic : has
     Playlist }|--}| Music : has
     User }|--}| Playlist : has
     User ||--|{ Music : has
     User ||--|| Role : has
-    User ||--|| Compte : has
  
-    Music ||--|| Author : has
 ```
 
 
